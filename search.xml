@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[类和对象]]></title>
+    <url>%2F2019%2F05%2F14%2F%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%2F</url>
+    <content type="text"><![CDATA[类是一种新的数据类型 引用对象的成员]]></content>
+      <tags>
+        <tag>JavaSE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[测试]]></title>
+    <url>%2F2019%2F05%2F14%2F%E6%B5%8B%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[面向对象三大特性：封装，继承，多态]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[Java数据类型]]></title>
+    <url>%2F2019%2F05%2F13%2FJava%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%2F</url>
+    <content type="text"><![CDATA[Java数据类型分为基本数据类型和引用数据类型：基本数据类型：数值型整型(默认值为0)：byte，short,int,long浮点型(默认值为0.0)：double，float字符型(默认值为‘\u0000’)：char布尔型(默认值为false)：boolean引用数据类型(默认值为null)：数组类接口基本数据类型总结在这里创建了一个汇总表： 说明 大的数据类型转换为小的数据类型时，必须强转，但有时会丢失内容 数据默认值在主方法中无效，各个数据类型的默认值的使用，必须结合类才能观察到 字符型数字（‘0’~‘9’）与int数字（0~9）不同，即 if(‘0’==0)结果为false. 描述整数一般用int,描述小数一般用double long一般用于描述日期，时间，内存或文件大小 byte一般用于编码转换或进行二进制流的操作 char一般在描述中文时用到 基本类型具有包装器的，使得可以在堆中创建一个非基本对象，用来表示对应的基本类型，例如： 1234char c = &apos;x&apos;;Character ch = new Character(c);也可以这样用：Character ch = new Character(&apos;x&apos;);JDK1.5的自动包装功能可自动将基本类型转换为包装器类型： JDK1.5的自动包装功能可自动将基本类型转换为包装器类型： 123Character ch = 'x';//并可以反向转换：char c = ch;]]></content>
+      <tags>
+        <tag>知识点总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[JAVA对象存储及内存分配]]></title>
+    <url>%2F2019%2F05%2F13%2FJAVA%E5%AF%B9%E8%B1%A1%E5%AD%98%E5%82%A8%E5%8F%8A%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%2F</url>
+    <content type="text"><![CDATA[程序运行时，对象如何进行放置安排？内存如何进行分配？ 有五个不同的地方可以存储数据： 寄存器最快的存储区，因为它位于不同于其他存储器的地方：处理器内部。但是寄存器的数量极其有限，所以寄存器需要根据需求分配，不能直接控制，也无法在程序中感受到寄存器存在的任何迹象。（C和C++允许向编译器建议寄存器的分配方式）。 堆栈位于通用ARM（随机访问存储器）中，但通过堆栈指针可以从处理器那里获得直接支持。堆栈指针向下移动，则分配新的内存，若向上移动，则释放这些内存。这是一种快速有效的分配存储方法，仅次于寄存器。创建对象时，Java系统必须知道存储在堆栈中所有项的确切生命周期，以便上下移动堆栈指针。这一约束限制了程序的灵活性，所以虽然某些Java数据存储于堆栈中——特别是对象引用，但是Java对象并不存储于其中。 堆一种通用的内存池（也位于ARM区），用于存放所有的Java对象。堆不同于堆栈的好处是：编译器不需要知道存储的数据在堆里存活多长时间。因此在堆里分配内存有很大的灵活性。当需要一个对象时，只需要用new写一行简单的代码，当执行这行代码时，会自动在堆里进行存储分配。当然，这种灵活性必须付出相应的代价：用堆进行存储分配和清理可能比用堆栈进行存储分配需要更多的时间（如果确实可以在Java中像在C++中一样在栈中创建对象）。 常量存储常量值通常直接存放在程序代码内部，这样做是安全的，因为它们永远不会被改变。有时，在嵌入式系统中，常量本身会和其他部分隔离开，所以在这种情况下，可以选择将其存放在ROM（只读存储器）中。 （ROM存储区的一个例子是字符串池，所有字面常量字符串和具有字符串值的常量表达式都自动是内存限定的，并且会置于特殊的静态存储区中）如果数据完全存活于程序之外，那么它可以不受程序的任何控制，在程序没有运行时也可以存在。其中两个基本的例子是“流对象”和“持久化对象”。在“流对象”中，对象转化成字节流，通常被发送给另一台机器。在“持久化对象”中，对象被存放于磁盘上，因此即使程序终止，它们仍然可以保持自己的状态。这种存储方式的技巧在于：把对象转化可以存放在其他媒介上的事物，在需要时，可恢复成常规的，基于ARM的对象。 非ARM存储如果数据完全存活于程序之外，那么它可以不受程序的任何控制，在程序没有运行时也可以存在。其中两个基本的例子是“流对象”和“持久化对象”。在“流对象”中，对象转化成字节流，通常被发送给另一台机器。在“持久化对象”中，对象被存放于磁盘上，因此即使程序终止，它们仍然可以保持自己的状态。这种存储方式的技巧在于：把对象转化可以存放在其他媒介上的事物，在需要时，可恢复成常规的，基于ARM的对象。]]></content>
+      <tags>
+        <tag>知识点总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Hello World]]></title>
+    <url>%2F2019%2F05%2F11%2Fhello-world%2F</url>
+    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
+  </entry>
+</search>
