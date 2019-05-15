@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[类和对象]]></title>
-    <url>%2F2019%2F05%2F14%2F%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%2F</url>
-    <content type="text"><![CDATA[类是一种新的数据类型 引用对象的成员]]></content>
+    <title><![CDATA[Java常用关键字]]></title>
+    <url>%2F2019%2F05%2F15%2FJava%E5%B8%B8%E7%94%A8%E5%85%B3%E9%94%AE%E5%AD%97%2F</url>
+    <content type="text"></content>
+      <tags>
+        <tag>知识点总结</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java类和对象简介]]></title>
+    <url>%2F2019%2F05%2F14%2FJava%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1%E7%AE%80%E4%BB%8B%2F</url>
+    <content type="text"><![CDATA[类：一种共性的概念 对象：一个具体的，可以使用的事物 类相当于是一种新的数据类型，这个数据类型的实例就是相应的对象。 类组成：属性/字段/数据成员（变量：描述每个对象的具体特点） 方法/成员函数（操作的行为） 定义一个类的语法： 1234567891011121314151617181920/*class 类名称&#123; 属性1； 属性2； 方法1（）&#123;&#125; 方法2（）&#123;&#125;&#125;*/如：class Person&#123; String name; int age; public void eat()&#123; System.out.println("Person can eat"); &#125; public void run()&#123; System.out.println("Person can run"); &#125;&#125; 对象首先产生类（类是生产对象的蓝图），之后才能产生对象，对象的所有行为，一定在类中进行了完整的定义。 产生对象的语法： 123//类名称 对象名称 = new 类名称();//如：Person lihua = new Person(); 只要出现了关键字new,就开辟了内存 通过对象调用类中实例变量与实例方法： 1234//对象名称.属性名称/方法名称//如:lihua.name;lihua.rat();]]></content>
       <tags>
         <tag>JavaSE</tag>
       </tags>

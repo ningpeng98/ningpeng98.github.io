@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="JavaSE,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/tags/JavaSE/index.html">
+<meta name="description" content="类：一种共性的概念 对象：一个具体的，可以使用的事物 类相当于是一种新的数据类型，这个数据类型的实例就是相应的对象。 类组成：属性/字段/数据成员（变量：描述每个对象的具体特点） 方法/成员函数（操作的行为） 定义一个类的语法： 1234567891011121314151617181920/*class 类名称&amp;#123;    属性1；    属性2；        方法1（）&amp;#123;&amp;#">
+<meta name="keywords" content="JavaSE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java类和对象简介">
+<meta property="og:url" content="http://yoursite.com/2019/05/14/Java类和对象简介/index.html">
 <meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="类：一种共性的概念 对象：一个具体的，可以使用的事物 类相当于是一种新的数据类型，这个数据类型的实例就是相应的对象。 类组成：属性/字段/数据成员（变量：描述每个对象的具体特点） 方法/成员函数（操作的行为） 定义一个类的语法： 1234567891011121314151617181920/*class 类名称&amp;#123;    属性1；    属性2；        方法1（）&amp;#123;&amp;#">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-15T01:05:19.413Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
+<meta name="twitter:title" content="Java类和对象简介">
+<meta name="twitter:description" content="类：一种共性的概念 对象：一个具体的，可以使用的事物 类相当于是一种新的数据类型，这个数据类型的实例就是相应的对象。 类组成：属性/字段/数据成员（变量：描述每个对象的具体特点） 方法/成员函数（操作的行为） 定义一个类的语法： 1234567891011121314151617181920/*class 类名称&amp;#123;    属性1；    属性2；        方法1（）&amp;#123;&amp;#">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/JavaSE/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/14/Java类和对象简介/">
 
 
 
 
 
-  <title>标签: JavaSE | Hello World</title>
+  <title>Java类和对象简介 | Hello World</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,52 +249,17 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>JavaSE<small>标签</small>
-        </h1>
-      </div>
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/05/14/Java类和对象简介/" itemprop="url">
-              
-                <span itemprop="name">Java类和对象简介</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-14T21:55:01+08:00" content="2019-05-14">
-          05-14
-        </time>
-      </div>
-
-    </header>
-  </article>
+  <div id="posts" class="posts-expand">
+    
 
 
+
+
+
+    <div class="post-spread">
       
     </div>
-
   </div>
-  
-  
-  
-
-  
 
 
           </div>
@@ -297,6 +267,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -317,8 +291,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -369,6 +352,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类"><span class="nav-number">1.</span> <span class="nav-text">类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象"><span class="nav-number">2.</span> <span class="nav-text">对象</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -529,6 +528,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
