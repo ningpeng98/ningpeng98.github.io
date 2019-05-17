@@ -14,6 +14,13 @@
 
 
 
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2" rel="stylesheet">
+
 
 
 
@@ -45,6 +52,38 @@
 
 
 
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|10:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
 
 
 
@@ -68,7 +107,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="知识点总结,">
 
 
 
@@ -79,14 +118,18 @@
 
 
 
+<meta name="description" content="程序运行时，对象如何进行放置安排？内存如何进行分配？ 有五个不同的地方可以存储数据： 寄存器最快的存储区，因为它位于不同于其他存储器的地方：处理器内部。但是寄存器的数量极其有限，所以寄存器需要根据需求分配，不能直接控制，也无法在程序中感受到寄存器存在的任何迹象。（C和C++允许向编译器建议寄存器的分配方式）。 堆栈位于通用ARM（随机访问存储器）中，但通过堆栈指针可以从处理器那里获得直接支持。堆栈">
+<meta name="keywords" content="知识点总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
+<meta property="og:title" content="JAVA对象存储及内存分配">
 <meta property="og:url" content="http://yoursite.com/2019/05/13/JAVA对象存储及内存分配/index.html">
 <meta property="og:site_name" content="Hello World">
+<meta property="og:description" content="程序运行时，对象如何进行放置安排？内存如何进行分配？ 有五个不同的地方可以存储数据： 寄存器最快的存储区，因为它位于不同于其他存储器的地方：处理器内部。但是寄存器的数量极其有限，所以寄存器需要根据需求分配，不能直接控制，也无法在程序中感受到寄存器存在的任何迹象。（C和C++允许向编译器建议寄存器的分配方式）。 堆栈位于通用ARM（随机访问存储器）中，但通过堆栈指针可以从处理器那里获得直接支持。堆栈">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-16T11:36:02.206Z">
+<meta property="og:updated_time" content="2019-05-16T11:36:02.241Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
+<meta name="twitter:title" content="JAVA对象存储及内存分配">
+<meta name="twitter:description" content="程序运行时，对象如何进行放置安排？内存如何进行分配？ 有五个不同的地方可以存储数据： 寄存器最快的存储区，因为它位于不同于其他存储器的地方：处理器内部。但是寄存器的数量极其有限，所以寄存器需要根据需求分配，不能直接控制，也无法在程序中感受到寄存器存在的任何迹象。（C和C++允许向编译器建议寄存器的分配方式）。 堆栈位于通用ARM（随机访问存储器）中，但通过堆栈指针可以从处理器那里获得直接支持。堆栈">
 
 
 
@@ -122,7 +165,7 @@
 
 
 
-  <title> | Hello World</title>
+  <title>JAVA对象存储及内存分配 | Hello World</title>
   
 
 
@@ -276,7 +319,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">JAVA对象存储及内存分配</h1>
         
 
         <div class="post-meta">
@@ -336,9 +379,34 @@
       
 
       
-        
+        <p>程序运行时，对象如何进行放置安排？内存如何进行分配？</p>
+<p>有五个不同的地方可以存储数据：</p>
+<h2 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h2><p>最快的存储区，因为它位于不同于其他存储器的地方：处理器内部。但是寄存器的数量极其有限，所以寄存器需要根据需求分配，不能直接控制，也无法在程序中感受到寄存器存在的任何迹象。（C和C++允许向编译器建议寄存器的分配方式）。</p>
+<h2 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h2><p>位于通用ARM（随机访问存储器）中，但通过堆栈指针可以从处理器那里获得直接支持。堆栈指针向下移动，则分配新的内存，若向上移动，则释放这些内存。这是一种快速有效的分配存储方法，仅次于寄存器。创建对象时，Java系统必须知道存储在堆栈中所有项的确切生命周期，以便上下移动堆栈指针。这一约束限制了程序的灵活性，所以虽然某些Java数据存储于堆栈中——特别是对象引用，但是Java对象并不存储于其中。</p>
+<h2 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h2><p>一种通用的内存池（也位于ARM区），用于存放所有的Java对象。堆不同于堆栈的好处是：编译器不需要知道存储的数据在堆里存活多长时间。因此在堆里分配内存有很大的灵活性。当需要一个对象时，只需要用new写一行简单的代码，当执行这行代码时，会自动在堆里进行存储分配。当然，这种灵活性必须付出相应的代价：用堆进行存储分配和清理可能比用堆栈进行存储分配需要更多的时间（如果确实可以在Java中像在C++中一样在栈中创建对象）。</p>
+<h2 id="常量存储"><a href="#常量存储" class="headerlink" title="常量存储"></a>常量存储</h2><p>常量值通常直接存放在程序代码内部，这样做是安全的，因为它们永远不会被改变。有时，在嵌入式系统中，常量本身会和其他部分隔离开，所以在这种情况下，可以选择将其存放在ROM（只读存储器）中。</p>
+<p>（ROM存储区的一个例子是字符串池，所有字面常量字符串和具有字符串值的常量表达式都自动是内存限定的，并且会置于特殊的静态存储区中）如果数据完全存活于程序之外，那么它可以不受程序的任何控制，在程序没有运行时也可以存在。其中两个基本的例子是“流对象”和“持久化对象”。在“流对象”中，对象转化成字节流，通常被发送给另一台机器。在“持久化对象”中，对象被存放于磁盘上，因此即使程序终止，它们仍然可以保持自己的状态。这种存储方式的技巧在于：把对象转化可以存放在其他媒介上的事物，在需要时，可恢复成常规的，基于ARM的对象。</p>
+<h2 id="非ARM存储"><a href="#非ARM存储" class="headerlink" title="非ARM存储"></a>非ARM存储</h2><p>如果数据完全存活于程序之外，那么它可以不受程序的任何控制，在程序没有运行时也可以存在。其中两个基本的例子是“流对象”和“持久化对象”。在“流对象”中，对象转化成字节流，通常被发送给另一台机器。在“持久化对象”中，对象被存放于磁盘上，因此即使程序终止，它们仍然可以保持自己的状态。这种存储方式的技巧在于：把对象转化可以存放在其他媒介上的事物，在需要时，可恢复成常规的，基于ARM的对象。</p>
+
       
     </div>
+	
+	
+	
+	<div>
+		
+			
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">
+              -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+        </div>
+    
+</div>
+
+		
+	</div>
+	
     
     
     
@@ -350,6 +418,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/知识点总结/" rel="tag"># 知识点总结</a>
+          
+        </div>
       
 
       
@@ -424,8 +498,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -440,7 +523,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -453,7 +536,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -476,6 +559,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器"><span class="nav-number">1.</span> <span class="nav-text">寄存器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆栈"><span class="nav-number">2.</span> <span class="nav-text">堆栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#堆"><span class="nav-number">3.</span> <span class="nav-text">堆</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常量存储"><span class="nav-number">4.</span> <span class="nav-text">常量存储</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#非ARM存储"><span class="nav-number">5.</span> <span class="nav-text">非ARM存储</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -595,6 +694,9 @@ show.innerHTML = t;
 
 
 
+  
+  
+
 
 
 
@@ -636,6 +738,16 @@ show.innerHTML = t;
   
   
     <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
   
 
 
@@ -719,7 +831,7 @@ show.innerHTML = t;
   
 
   <!--页面点击小红心-->
-<script type="text/javascript" src="/js/src/clicklove.js"></script>
+<script type="text/javascript" src="/js/src/love.js"></script>
 </body>
 </html>
 
